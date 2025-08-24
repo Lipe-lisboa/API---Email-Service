@@ -2,7 +2,7 @@ package com.kipper.email_service.application.service;
 
 
 import com.kipper.email_service.adpter.EmailSenderGateway;
-import com.kipper.email_service.useCases.EmailSenderCase;
+import com.kipper.email_service.core.EmailSenderCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

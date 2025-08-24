@@ -1,4 +1,4 @@
-package com.kipper.email_service.useCases;
+package com.kipper.email_service.core;
 
 
 // uso principal da aplicação
