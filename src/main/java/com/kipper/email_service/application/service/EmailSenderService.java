@@ -11,6 +11,8 @@ public class EmailSenderService implements EmailSenderCase {
 
     private EmailSenderGateway emailSenderGateway;
 
+    // Com o Autowired o spring vai procurar altomaticamente alguma classe
+    // que tenha implementado a interface EmailSenderGateway
     @Autowired
     public EmailSenderService(EmailSenderGateway emailSenderGateway) {
         this.emailSenderGateway = emailSenderGateway;
