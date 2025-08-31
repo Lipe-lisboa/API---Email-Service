@@ -1,0 +1,33 @@
+#Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+
+        # quais endpoints devem ser expostos:
+        # saude, informações, metricas e swagger
+        include: "health,info,metrics,swagger-ui"
+  endpoint:
+    # Mostrar todos os detalhes da saude da nossa API
+    health:
+      show-details: always
+  info:
+    # Permite emprimir informações da nossa API, como o nome, versão e a descrição
+    env:
+      enable: true
+    app:
+      name: "Api de Email"
+      version: 1.0.0
+      description: "Api responsável por enviar Email"
+    metrics:
+      tags:
+        application: api-email-service
+
+  # Permite emprimir informações das metricas
+  metrics:
+    enable:
+      all: true
+
+#Mostra os endpoints do spring actuator no swagger
+springdoc:
+  show-actuator: true
