@@ -28,11 +28,6 @@ public class SesEmailSender implements EmailSenderGateway {
                         .withBody(new Body().withText(new Content(body)))
                 );
 
-        try {
-            this.amazonSimpleEmailService.sendEmail(request);
-
-        }catch (AmazonServiceException e){
-            throw new EmailServiceException("Failed to send email", e);
-        }
+        this.amazonSimpleEmailService.sendEmail(request);
     }
 }
