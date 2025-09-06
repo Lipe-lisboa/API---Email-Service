@@ -6,6 +6,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/email")
 public class EmailSenderController {
 
+    private static final Logger log = LoggerFactory.getLogger(EmailSenderController.class);
     private final EmailSenderService emailSenderService;
 
     @Autowired
@@ -31,12 +34,15 @@ public class EmailSenderController {
     })
     @PostMapping
     public ResponseEntity<String> sendEmail(@RequestBody @Valid RequestEmailDTO email){
+
+            log.info("Chamando a função 'sendEmail' do serviço de email ");
             this.emailSenderService.sendEmail(
                     email.to(),
                     email.subject(),
                     email.body()
             );
 
+            log.info("Retornando a reposta da requisição");
             return ResponseEntity.status(HttpStatus.OK).body("Email send successfully");
     }
 }

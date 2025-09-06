@@ -3,6 +3,7 @@ package com.kipper.email_service.controllers;
 import com.kipper.email_service.core.exceptions.BadRequest;
 import com.kipper.email_service.core.exceptions.EmailServiceException;
 import com.kipper.email_service.core.exceptions.UnprocessableEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+@Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -22,6 +24,8 @@ public class GlobalExceptionHandler {
                 status.getReasonPhrase(),
                 e.getMessage()
         );
+
+        log.info("Retornando um ErrorResponse");
         return new ResponseEntity<>(errorResponse, status);
     }
 
@@ -34,6 +38,8 @@ public class GlobalExceptionHandler {
                 status.getReasonPhrase(),
                 e.getMessage()
         );
+
+        log.info("Retornando um ErrorResponse");
         return new ResponseEntity<>(errorResponse, status);
     }
 
@@ -46,6 +52,8 @@ public class GlobalExceptionHandler {
                 status.getReasonPhrase(),
                 e.getMessage()
         );
+
+        log.info("Retornando um ErrorResponse");
         return new ResponseEntity<>(errorResponse, status);
     }
 
@@ -59,6 +67,8 @@ public class GlobalExceptionHandler {
                 status.getReasonPhrase(),
                 e.getMessage()
         );
+
+        log.info("Retornando um ErrorResponse");
         return new ResponseEntity<>(errorResponse, status);
     }
 
@@ -72,6 +82,8 @@ public class GlobalExceptionHandler {
                 status.getReasonPhrase(),
                 e.getMessage()
         );
+
+        log.info("Retornando um ErrorResponse");
         return new ResponseEntity<>(errorResponse, status);
     }
 }
